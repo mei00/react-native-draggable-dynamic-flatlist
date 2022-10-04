@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 
 // Measure function triggers false positives
-LogBox.ignoreLogs(['Warning: isMounted(...) is deprecated', 'Animated: `useNativeDriver` was not specified. This is a required option and must be explicitly set to `true` or `false`']);
+LogBox.ignoreLogs(['Warning: isMounted(...) is deprecated']);
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 
 const initialState = {
@@ -93,7 +93,7 @@ class DraggableFlatList extends Component {
                         const { horizontal } = this.props;
                         this._move = horizontal ? moveX : moveY;
                     },
-                    useNativeDriver: true
+                    useNativeDriver: false,
                 })(evt, gestureState)
             },
             onPanResponderTerminationRequest: ({ nativeEvent }, gestureState) => {
