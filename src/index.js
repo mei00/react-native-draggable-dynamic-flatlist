@@ -92,7 +92,8 @@ class DraggableFlatList extends Component {
                         const { moveX, moveY } = gestureState;
                         const { horizontal } = this.props;
                         this._move = horizontal ? moveX : moveY;
-                    }
+                    },
+                    useNativeDriver: true
                 })(evt, gestureState)
             },
             onPanResponderTerminationRequest: ({ nativeEvent }, gestureState) => {
